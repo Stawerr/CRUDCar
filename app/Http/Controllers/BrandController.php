@@ -14,7 +14,8 @@ class BrandController extends Controller
      */
     public function index()
     {
-        //
+        $brands = Brand::orderBy('id','asc')->paginate(15);
+        return view('pages.brands.index',['brands'=>$brands]);
     }
 
     /**
@@ -46,7 +47,7 @@ class BrandController extends Controller
      */
     public function show(Brand $brand)
     {
-        //
+        return view('pages.brands.show',['brand'=>$brand]);
     }
 
     /**

@@ -10,21 +10,31 @@
         <th scope="col">Created_at</th>
         <th scope="col">Updated_at</th>
         <th scope="col">Deleted_at</th>
+        <th scope="col">Status</th>
 
     </tr>
     </thead>
     <tbody>
     @foreach($cars as $car)
         <tr>
-            <td> {{$car->id}}</td>
+            <td>{{$car->id}}</td>
             <td>{{$car->brand->name}}</td>
-            <td> {{$car->registration}}</td>
+            <td>{{$car->registration}}</td>
             <td>{{$car->year_of_manufacture}}</td>
             <td>{{$car->color}}</td>
             <td>{{$car->created_at}}</td>
             <td>{{$car->updated_at}}</td>
-
+            <td><a class="btn btn-success" href="{{url('cars/'.$car->id)}}">Show</a></td>
+            <td><a class="btn btn-primary" href="{{url('cars/'.$car->id. '/edit')}}">Edit</a></td>
+            <form action="{{url('cars/' . $car->id)}}" method="POST">
+                @csrf
+                @method('DELETE')
+                <td><button type="submit" class="btn btn-danger">Delete</button></td>
+            </form>
         </tr>
     @endforeach
     </tbody>
 </table>
+<div class="d-flex justify-content-center">
+    {{$cars->links()}}
+</div>

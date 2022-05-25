@@ -14,7 +14,8 @@ class CarController extends Controller
      */
     public function index()
     {
-        //
+        $cars = Car::orderBy('id','asc')->paginate(15);
+        return view('pages.cars.index',['cars'=>$cars]);
     }
 
     /**
@@ -46,7 +47,7 @@ class CarController extends Controller
      */
     public function show(Car $car)
     {
-        //
+        return view('pages.cars.show',['car'=>$car]);
     }
 
     /**

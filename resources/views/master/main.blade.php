@@ -1,4 +1,3 @@
-<?php
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
@@ -10,15 +9,15 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
-<!-- Fonts -->
-<link rel="dns-prefetch" href="//fonts.gstatic.com">
-<link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <!-- Fonts -->
+    <link rel="dns-prefetch" href="//fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
 
-<!-- Styles -->
-<link href="{{ asset('css/app.css') }}" rel="stylesheet">
-@yield('styles')
+    <!-- Styles -->
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    @yield('styles')
 </head>
-<body>
+<body class="container">
 @component('master.header')
 @endcomponent
 <main>

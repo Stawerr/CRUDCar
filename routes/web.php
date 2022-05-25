@@ -20,3 +20,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/brands','BrandController@index');
+Route::get('/brands/{brand}','BrandController@show');
+
+Route::get('/cars','CarController@index');
+Route::get('/cars/{car}','CarController@show');
