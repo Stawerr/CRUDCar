@@ -31,4 +31,5 @@ Route::delete('/brands/{brand}', 'BrandController@destroy');
 
 
 Route::get('/cars','CarController@index');
+Route::get('/cars/create','CarController@create');
 Route::get('/cars/{car}','CarController@show');

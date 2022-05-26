@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Car;
+use App\Brand;
 use Illuminate\Http\Request;
 
 class CarController extends Controller
@@ -25,7 +26,8 @@ class CarController extends Controller
      */
     public function create()
     {
-        //
+        $brands = Brand::orderBy('id','asc')->get();
+        return view('pages.cars.create',['brands'=>$brands]);
     }
 
     /**
