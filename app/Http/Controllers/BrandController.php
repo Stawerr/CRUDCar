@@ -25,7 +25,7 @@ class BrandController extends Controller
      */
     public function create()
     {
-        //
+        return view('pages.brands.create');
     }
 
     /**
@@ -36,7 +36,14 @@ class BrandController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name'        => 'required',
+        ]);
+
+        Brand::create([
+            'name'        => $request->name,
+        ]);
+        return redirect('brands')->with('status','Brand created successfully!');
     }
 
     /**
@@ -58,7 +65,7 @@ class BrandController extends Controller
      */
     public function edit(Brand $brand)
     {
-        //
+        return view('pages.brands.edit',['brand'=>$brand]);
     }
 
     /**
@@ -70,7 +77,8 @@ class BrandController extends Controller
      */
     public function update(Request $request, Brand $brand)
     {
-        //
+        $brand->update($request->all());
+        return redirect('brands')->with('status','Item edited successfully!');
     }
 
     /**
@@ -81,6 +89,7 @@ class BrandController extends Controller
      */
     public function destroy(Brand $brand)
     {
-        //
+        $brand->delete();
+        return redirect('brands')->with('status','Item deleted successfully!');
     }
 }

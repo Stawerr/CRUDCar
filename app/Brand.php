@@ -14,4 +14,12 @@ class Brand extends Model
     {
         return $this->hasMany(Car::class);
     }
+
+    /**     * The attributes that are mass assignable.
+     *
+     *
+     *
+     * @var array*/
+    protected $fillable = [
+        'name'];
 }
