@@ -6,9 +6,9 @@
     <tr>
         <th scope="col">ID</th>
         <th scope="col">Name</th>
+        <th scope="col">Cars</th>
         <th scope="col">Created_at</th>
         <th scope="col">updated_at</th>
-        <th scope="col">deleted_at</th>
         <th scope="col">Status</th>
 
     </tr>
@@ -18,9 +18,13 @@
         <tr>
             <td> {{$brand->id}}</td>
             <td> {{$brand->name}}</td>
+            <td>
+                @foreach($brand->cars as $car)
+                    <p>{{$car->registration}}</p>
+                @endforeach
+            </td>
             <td>{{$brand->created_at}}</td>
             <td>{{$brand->updated_at}}</td>
-            <td>{{$brand->deleted_at}}</td>
             <td><a class="btn btn-success" href="{{url('brands/'.$brand->id)}}">Show</a></td>
             <td><a class="btn btn-primary" href="{{url('brands/'.$brand->id. '/edit')}}">Edit</a></td>
             <form action="{{url('brands/' . $brand->id)}}" method="POST">
