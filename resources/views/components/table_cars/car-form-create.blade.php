@@ -7,6 +7,8 @@
                 @foreach($brands as $brand)
                     <option value="{{ $brand->name }}">{{ $brand->name }}</option>
                 @endforeach
+            </select>
+            <p></p>
                 <label for="registration">Registration</label>
             <input
                 type="text"
