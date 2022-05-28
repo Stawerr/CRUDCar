@@ -32,4 +32,8 @@ Route::delete('/brands/{brand}', 'BrandController@destroy');
 
 Route::get('/cars','CarController@index');
 Route::get('/cars/create','CarController@create');
+Route::post('/cars/','CarController@store');
 Route::get('/cars/{car}','CarController@show');
+Route::get('/cars/{car}/edit','CarController@edit');
+Route::put('/cars/{car}', 'CarController@update');
+Route::delete('/cars/{car}', 'CarController@destroy');

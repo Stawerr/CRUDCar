@@ -14,4 +14,10 @@ class Car extends Model
     {
         return $this->belongsTo(Brand::class);
     }
+    protected $fillable = [
+        'brand_id',
+        'registration',
+        'year_of_manufacture',
+        'color'
+        ];
 }

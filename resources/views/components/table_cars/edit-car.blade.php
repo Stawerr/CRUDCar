@@ -1,15 +1,16 @@
 <div class="col-4 mx-auto mt-4">
     <h1>Add Car</h1>
-    <form method="POST" action="{{ url('cars') }}">
+    <form method="POST" action="{{ url('cars/' . $car->id) }}">
         @csrf
+        @method('PUT')
         <div class="form-group ">
             <select name="brand" id="brand">
                 @foreach($brands as $brand)
-                    <option name="brand_id" value="{{ $brand->id }}">{{ $brand->name }}</option>
+                    <option name="brand_id" value="{{ $car->brand_id }}">{{ $brand->name }}</option>
                 @endforeach
             </select>
             <p></p>
-                <label for="registration">Registration</label>
+            <label for="registration">Registration</label>
             <input
                 type="text"
                 id="registration"
@@ -18,7 +19,7 @@
                 placeholder="Type registration"
                 class="form-control
             @error('registration') is-invalid @enderror"
-                value="{{ old('registration') }}"
+                value="{{ $car->registration }}"
                 required
                 aria-describedby="nameHelp">
 
@@ -38,7 +39,7 @@
                 placeholder="Type a Year (AAAA-MM-DD)"
                 class="form-control
             @error('year_of_manufacture') is-invalid @enderror"
-                value="{{ old('year_of_manufacture') }}"
+                value="{{ $car->year_of_manufacture }}"
                 required
                 aria-describedby="nameHelp">
 
@@ -58,7 +59,7 @@
                 placeholder="Type a Color"
                 class="form-control
             @error('color') is-invalid @enderror"
-                value="{{ old('color') }}"
+                value="{{ $car->color }}"
                 required
                 aria-describedby="nameHelp">
 
@@ -75,3 +76,4 @@
         <button type="submit" class="mt-2 mb-5 btn btn-primary">Submit</button>
     </form>
 </div>
+

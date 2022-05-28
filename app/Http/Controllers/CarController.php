@@ -38,7 +38,20 @@ class CarController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'brand_id'        => 'required',
+            'registration'        => 'required',
+            'year_of_manufacture'        => 'required',
+            'color'        => 'required',
+        ]);
+
+        Car::create([
+            'brand_id'        => $request->brand_id,
+            'registration'        => $request->registration,
+            'year_of_manufacture'        => $request->year_of_manufacture,
+            'color'        => $request->color,
+        ]);
+        return redirect('cars')->with('status','Car created successfully!');
     }
 
     /**
@@ -60,7 +73,8 @@ class CarController extends Controller
      */
     public function edit(Car $car)
     {
-        //
+        $brands = Brand::orderBy('id','asc')->get();
+        return view('pages.cars.edit',['car'=>$car,'brands'=>$brands]);
     }
 
     /**
@@ -72,7 +86,8 @@ class CarController extends Controller
      */
     public function update(Request $request, Car $car)
     {
-        //
+        $car->update($request->all());
+        return redirect('cars')->with('status','Item edited successfully!');
     }
 
     /**
@@ -83,6 +98,7 @@ class CarController extends Controller
      */
     public function destroy(Car $car)
     {
-        //
+        $car->delete();
+        return redirect('cars')->with('status','Item deleted successfully!');
     }
 }
