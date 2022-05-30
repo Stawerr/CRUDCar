@@ -4,9 +4,13 @@
         @csrf
         @method('PUT')
         <div class="form-group ">
-            <select name="brand" id="brand">
+            <select name="brand_id" id="brand_id">
                 @foreach($brands as $brand)
-                    <option name="brand_id" value="{{ $car->brand_id }}">{{ $brand->name }}</option>
+                    <option
+                        @if($car->brand_id==$brand->id)
+                            selected
+                            @endif
+                        value="{{ $brand->id }}">{{ $brand->name }}</option>
                 @endforeach
             </select>
             <p></p>
