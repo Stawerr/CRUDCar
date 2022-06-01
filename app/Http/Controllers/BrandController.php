@@ -90,7 +90,13 @@ class BrandController extends Controller
      */
     public function destroy(Brand $brand)
     {
-        $brand->delete();
-        return redirect('brands')->with('status','Item deleted successfully!');
+        try {
+            $brand->delete();
+            return redirect('brands')->with('status','Item deleted successfully!');
+        }
+        catch (\Exception $exception){
+
+            return redirect('brands')->with('status',$exception->getMessage());
+        }
     }
 }

@@ -3,7 +3,7 @@
     <form method="POST" action="{{ url('cars') }}">
         @csrf
         <div class="form-group ">
-            <select name="brand" id="brand" class="form-control">
+            <select name="brand_id" id="brand_id" class="form-control">
                 @foreach($brands as $brand)
                     <option name="brand_id" value="{{ $brand->id }}">{{ $brand->name }}</option>
                 @endforeach
@@ -31,7 +31,7 @@
             @enderror
             <label for="year_of_manufacture">Year of Manufacture</label>
             <input
-                type="text"
+                type="date"
                 id="year_of_manufacture"
                 name="year_of_manufacture"
                 autocomplete="year_of_manufacture"
@@ -69,7 +69,6 @@
             <strong>{{ $message }}</strong>
         </span>
             @enderror
-
         </div>
 
         <button type="submit" class="mt-2 mb-5 btn btn-primary">Submit</button>

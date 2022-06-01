@@ -1,4 +1,11 @@
-@if (session('status'))<div class="alert alert-success alert-dismissible fade show" role="alert">{{ session('status') }}<button type="button" class="close" data-dismiss="alert" aria-label="Close">            <span aria-hidden="true">&times;</span>        </button>    </div>@endif
+@if (session('status'))
+    <div class="alert @if(session('status')=='Related cars found')alert-danger  @else alert-success @endif alert-dismissible fade show" role="alert">
+        {{ session('status') }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+    </button>
+    </div>
+@endif
 
 <h1>Brands</h1>
 <table class="table table-striped table-dark">
@@ -10,7 +17,6 @@
         <th scope="col">Created_at</th>
         <th scope="col">updated_at</th>
         <th scope="col">Status</th>
-
     </tr>
     </thead>
     <tbody>

@@ -22,4 +22,13 @@ class Brand extends Model
      * @var array*/
     protected $fillable = [
         'name'];
+
+    protected static function booted()
+    {
+        static::deleting(function ($brand) {
+            if ($brand->cars()->exists()) {
+                throw new \Exception('Related cars found');
+            }
+        });
+    }
 }
