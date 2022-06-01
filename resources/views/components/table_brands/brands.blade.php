@@ -16,7 +16,7 @@
         <th scope="col">Cars</th>
         <th scope="col">Created_at</th>
         <th scope="col">updated_at</th>
-        <th scope="col">Status</th>
+        <th scope="col">Action</th>
     </tr>
     </thead>
     <tbody>

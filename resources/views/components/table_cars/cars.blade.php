@@ -9,7 +9,7 @@
         <th scope="col">Color</th>
         <th scope="col">Created_at</th>
         <th scope="col">Updated_at</th>
-        <th scope="col">Status</th>
+        <th scope="col">Action</th>
 
     </tr>
     </thead>
