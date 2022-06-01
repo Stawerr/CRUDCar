@@ -1,27 +1,88 @@
-<h1>Car</h1>
-<table class="table table-striped table-dark">
-    <thead>
-    <tr>
-        <th scope="col">ID</th>
-        <th scope="col">Brand</th>
-        <th scope="col">Registration</th>
-        <th scope="col">Year of Manufacture</th>
-        <th scope="col">Color</th>
-        <th scope="col">Created_at</th>
-        <th scope="col">Updated_at</th>
-        <th scope="col">Deleted_at</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-    <tr>
-        <td>{{$car->id}}</td>
-        <td>{{$car->brand->name}}</td>
-        <td>{{$car->registration}}</td>
-        <td>{{$car->year_of_manufacture}}</td>
-        <td>{{$car->color}}</td>
-        <td>{{$car->created_at}}</td>
-        <td>{{$car->updated_at}}</td>
-    </tr>
-    </tbody>
-</table>
+<div class="col-4 mx-auto mt-4">
+    <h1>Show Car</h1>
+    <div class="form-group">
+        <label for="id">Id</label>
+        <input
+            class="form-control"
+            type="text"
+            id="id"
+            name="id"
+            autocomplete="id"
+            value="{{$car->id}}"
+            required
+            disabled
+            aria-describedby="nameHelp">
+
+        <small id="nameHelp" class="form-text text-muted">We'll never share your data with anyone else.</small>
+
+        <label for="brand">Brand</label>
+        <input
+            class="form-control"
+            type="text"
+            id="brand"
+            name="brand"
+            autocomplete="brand"
+            value="{{ $car->brand->name }}"
+            required
+            disabled
+            aria-describedby="nameHelp">
+
+        <label for="registration">Registration</label>
+        <input
+            class="form-control"
+            type="text"
+            id="brand"
+            name="brand"
+            autocomplete="brand"
+            value="{{ $car->registration }}"
+            required
+            disabled
+            aria-describedby="nameHelp">
+        <label for="year_of_manufacture">Year of Manufacture</label>
+        <input
+            class="form-control"
+            type="text"
+            id="brand"
+            name="brand"
+            autocomplete="brand"
+            value="{{ $car->year_of_manufacture }}"
+            required
+            disabled
+            aria-describedby="nameHelp">
+        <label for="color">Color</label>
+        <input
+            class="form-control"
+            type="text"
+            id="brand"
+            name="brand"
+            autocomplete="brand"
+            value="{{ $car->color }}"
+            required
+            disabled
+            aria-describedby="nameHelp">
+        <label for="created_at">Created_at</label>
+        <input
+            class="form-control"
+            type="text"
+            id="brand"
+            name="brand"
+            autocomplete="brand"
+            value="{{ $car->created_at }}"
+            required
+            disabled
+            aria-describedby="nameHelp">
+        <label for="updated_at">Updated_at</label>
+        <input
+            class="form-control"
+            type="text"
+            id="brand"
+            name="brand"
+            autocomplete="brand"
+            value="{{ $car->updated_at }}"
+            required
+            disabled
+            aria-describedby="nameHelp">
+    </div>
+
+    <a class="mt-2 mb-5 btn btn-primary" href="{{url('cars/')}}">Back</a>
+</div>

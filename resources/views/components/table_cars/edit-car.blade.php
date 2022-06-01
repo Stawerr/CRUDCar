@@ -4,7 +4,7 @@
         @csrf
         @method('PUT')
         <div class="form-group ">
-            <select name="brand_id" id="brand_id">
+            <select name="brand_id" id="brand_id" class="form-control">
                 @foreach($brands as $brand)
                     <option
                         @if($car->brand_id==$brand->id)

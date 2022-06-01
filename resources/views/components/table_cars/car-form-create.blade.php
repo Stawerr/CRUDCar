@@ -3,7 +3,7 @@
     <form method="POST" action="{{ url('cars') }}">
         @csrf
         <div class="form-group ">
-            <select name="brand" id="brand">
+            <select name="brand" id="brand" class="form-control">
                 @foreach($brands as $brand)
                     <option name="brand_id" value="{{ $brand->id }}">{{ $brand->name }}</option>
                 @endforeach

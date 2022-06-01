@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Brand;
+use App\Car;
 use Illuminate\Http\Request;
 
 class BrandController extends Controller
