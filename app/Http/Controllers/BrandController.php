@@ -92,11 +92,10 @@ class BrandController extends Controller
     {
         try {
             $brand->delete();
-            return redirect('brands')->with('status','Item deleted successfully!');
+            return redirect('brands')->with('status','Item deleted successfully!')->with('type', 'success');
         }
         catch (\Exception $exception){
-
-            return redirect('brands')->with('status',$exception->getMessage());
+            return redirect('brands')->with('status',$exception->getMessage())->with('type', 'error');
         }
     }
 }

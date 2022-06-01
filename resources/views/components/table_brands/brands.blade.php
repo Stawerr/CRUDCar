@@ -1,9 +1,17 @@
 @if (session('status'))
-    <div class="alert @if(session('status')=='Related cars found')alert-danger  @else alert-success @endif alert-dismissible fade show" role="alert">
+    <div class="alert
+    @switch(session('type'))
+        @case('error')
+            alert-danger
+        @break
+        @default
+            alert-success
+    @endswitch
+        alert-dismissible fade show" role="alert">
         {{ session('status') }}
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-        <span aria-hidden="true">&times;</span>
-    </button>
+            <span aria-hidden="true">&times;</span>
+        </button>
     </div>
 @endif
 
