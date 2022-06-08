@@ -10,7 +10,10 @@
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <a class="dropdown-item" href="{{url('cars')}}">Cars</a>
+                @if (Auth::user() &&  Auth::user()->isAdmin())
                 <a class="dropdown-item" href="{{url('cars/create')}}">Add Car</a>
+
+                @endif
             </div>
         </div>
         <div class="dropdown">
@@ -19,7 +22,10 @@
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                 <a class="dropdown-item" href="{{url('brands')}}">Brands</a>
+                @if (Auth::user() &&  Auth::user()->isAdmin())
                 <a class="dropdown-item" href="{{url('brands/create')}}">Add Brand</a>
+
+                @endif
             </div>
         </div>
     </div>
