@@ -40,11 +40,13 @@
             <td>{{$brand->created_at}}</td>
             <td>{{$brand->updated_at}}</td>
             <td><a class="btn btn-success" href="{{url('brands/'.$brand->id)}}">Show</a></td>
+            @auth
             <td><a class="btn btn-primary" href="{{url('brands/'.$brand->id. '/edit')}}">Edit</a></td>
             <form action="{{url('brands/' . $brand->id)}}" method="POST">
                 @csrf
                 @method('DELETE')
                 <td><button type="submit" class="btn btn-danger">Delete</button></td>
+                @endauth
             </form>
         </tr>
     @endforeach

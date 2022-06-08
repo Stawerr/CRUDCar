@@ -34,12 +34,14 @@
             <td>{{$car->created_at}}</td>
             <td>{{$car->updated_at}}</td>
             <td><a class="btn btn-success" href="{{url('cars/'.$car->id)}}">Show</a></td>
+            @auth
             <td><a class="btn btn-primary" href="{{url('cars/'.$car->id. '/edit')}}">Edit</a></td>
             <form action="{{url('cars/' . $car->id)}}" method="POST">
                 @csrf
                 @method('DELETE')
                 <td><button type="submit" class="btn btn-danger">Delete</button></td>
             </form>
+            @endauth
         </tr>
     @endforeach
     </tbody>

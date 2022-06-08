@@ -18,6 +18,7 @@
     @yield('styles')
 </head>
 <body class="container">
+
 @component('master.header')
 @endcomponent
 <main>
